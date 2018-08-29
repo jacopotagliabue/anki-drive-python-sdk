@@ -3,13 +3,12 @@ This is a Python wrapper to read/send message from/to [Anki Overdrive](https://w
 bluetooth vehicles.
 
 The project was designed for the A.I. blog series _Self-driving (very small) cars_:
-please refer to the Medium [post](https://medium.com/@jacopotagliabue/serving-tensorflow-predictions-with-python-and-aws-lambda-facb4ab87ddd#.v01eyg8kh) 
-for a full explanation on the code structure and the philosophy behind it.
+please refer to the Medium [post](https://medium.com/@jacopotagliabue) for a full explanation on the code structure and the philosophy behind it.
 
 ## TL;DR
 We share a cross-platform Python+node setup that allows for quick experimentation and prototyping of interesting ideas
 in the toy universe of bluetooth cars. 
-![alt text](https://lh3.googleusercontent.com/kbFYW-PYzeHWYYVNuujq33oXmul-h_dnGUJJlPQIR08lt5q7aHevYCcePW7HGWMsW6znHNv01UKukw=w2706-h1270 "Project overview")
+![alt text](https://s3-us-west-2.amazonaws.com/public-tooso-medium-images/anki_python_overview_github_readme.jpg "Project overview")
 
 In particular:
 
@@ -40,7 +39,6 @@ npm install
 
 ``` 
 pip install -r requirements.txt
-
 ```
 
 Prepare the bluetooth id for the car you want to drive (if you don't know it, you can just start-up the node server with 
