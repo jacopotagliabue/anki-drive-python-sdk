@@ -1,4 +1,4 @@
-# py-overdrive-sdk
+# anki-drive-python-sdk
 This is a Python wrapper to read/send message from/to [Anki Overdrive](https://www.anki.com/en-us/overdrive) 
 bluetooth vehicles.
 
