@@ -8,7 +8,10 @@ please refer to the Medium [post](https://medium.com/@jacopotagliabue) for a ful
 ## TL;DR
 We share a cross-platform Python+node setup that allows for quick experimentation and prototyping of interesting ideas
 in the toy universe of bluetooth cars. 
+
+
 ![alt text](https://s3-us-west-2.amazonaws.com/public-tooso-medium-images/anki_python_overview_github_readme.jpg "Project overview")
+
 
 In particular:
 
