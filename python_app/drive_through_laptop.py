@@ -1,6 +1,7 @@
 import argparse
 from py_overdrive_sdk.py_overdrive import Overdrive
 # use pygle to have a friendly keyboard interface! It's a toy, after all ;-)
+# adapted from https://gist.github.com/davepape/6715432
 from pyglet.gl import *
 # init window
 window = pyglet.window.Window(50, 50)
@@ -34,9 +35,10 @@ def on_key_press(key, modifiers):
         return
 
 
-print("Press any key to start!")
+print("Wait until window gets opened and then press any key to start!")
 input()
 # init car
+print("Connecting to the car now...")
 car = Overdrive(args.host, args.port, args.car, verbose=False)
 # use connected car as a context
 with car as connected_car:
