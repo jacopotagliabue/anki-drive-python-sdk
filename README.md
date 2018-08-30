@@ -79,7 +79,7 @@ abilities and constrain car learning in dynamic ways;
 * data ingestion/persisting mechanism, so that we can log in a reliable and consistent way everything that happens
 within a run
 
-Some experimental code will be publish in the _develop_ branch and hopefully merge later on into a _beta_ release.
+Some experimental code will be published in the _develop_ branch and hopefully merged later on into a _beta_ release.
 
 
 ## Acknowledgments
