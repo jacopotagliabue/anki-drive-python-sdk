@@ -42,13 +42,19 @@ class Overdrive:
         self._speed = 0
         # set verbose to know how much to print (debug friendly=True)
         self._verbose = verbose
-        # finally try to connect to the car through node socket
-        self._connect(self.uuid)
         return
 
-    def __del__(self):
+    def __enter__(self):
+        #  try to connect to the car through node socket and start threads
+        self._connect(self.uuid)
+        pass
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        # on exit, clean-up: method added to substitute __del__ which is very unreliable see for example:
+        # https://stackoverflow.com/questions/45655448/alternative-to-del-for-final-result-killing-processes-in-a-class
         self._connected = False
         self._disconnect(self.uuid)
+        return
 
     """
         CONNECTION FUNCTIONS
@@ -138,12 +144,13 @@ class Overdrive:
 
     def _standard_driving_policy(self, **kwargs):
         """
-        Just a placeholder driving policy for the oval truck: print out notifications
+        Just a placeholder driving policy for the oval truck: print out notifications if verbose enabled
 
         :param data: tuple from location updates (location, piece, offset, speed, clockwise, datetime.utcnow())
         :return:
         """
-        print(kwargs)
+        if self._verbose:
+            print(kwargs)
         return
 
     """
