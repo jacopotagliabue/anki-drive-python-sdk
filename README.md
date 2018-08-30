@@ -94,4 +94,5 @@ and [node-mqtt-for-anki-overdrive](https://github.com/IBM-Cloud/node-mqtt-for-an
 
 ## License
 All the code in this repo is provided "AS IS" and it is freely available under the 
-[Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+[Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). Overdrive cars/images/logos etc. are all
+owned by Anki, Inc..
