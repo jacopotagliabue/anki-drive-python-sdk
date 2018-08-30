@@ -3,9 +3,6 @@ from py_overdrive_sdk.py_overdrive import Overdrive
 # use pygle to have a friendly keyboard interface! It's a toy, after all ;-)
 # adapted from https://gist.github.com/davepape/6715432
 from pyglet.gl import *
-# init window
-window = pyglet.window.Window(50, 50)
-
 
 # parse input
 parser = argparse.ArgumentParser()
@@ -13,6 +10,21 @@ parser.add_argument("--car", help="id of the bluetooth car")
 parser.add_argument("--host", help="host of the node gateway for bluetooth communication", default='127.0.0.1')
 parser.add_argument("--port", help="port of the node gateway for bluetooth communication", type=int, default=8005)
 args = parser.parse_args()
+
+# init pyglet window with stylish image
+window = pyglet.window.Window(50, 50)
+image = pyglet.resource.image('kitten.png')
+
+
+"""
+PYGLET WINDOW EVENTS
+"""
+
+
+@window.event
+def on_draw():
+    window.clear()
+    image.blit(0, 0)
 
 
 @window.event
@@ -33,6 +45,11 @@ def on_key_press(key, modifiers):
         print("---EXIT!")
         pyglet.app.exit()
         return
+
+
+"""
+RUN THE MAIN LOOP
+"""
 
 
 print("Wait until window gets opened and then press any key to start!")
