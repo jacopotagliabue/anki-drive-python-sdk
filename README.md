@@ -63,7 +63,7 @@ a one-minute video going from git to a running car: please refer to the Medium p
 
 
 ## Current release and next steps
-Please note that the current master is released as alpha as it just contains the bare minimum 
+Please note that the current master (as of Sep. 2018) is released as _alpha_ as it just contains the bare minimum 
 the get things going: no unit tests, no fancy stuff, almost no protections from errors, etc. 
 We'll hope to make several improvements to the code base as we progress with our experiments: 
 feedback and contributions are most welcomed! Even without considering A.I. stuff (i.e. making the car 
@@ -78,6 +78,8 @@ keeping the rest of the code (i.e. communication layer) pretty much intact and r
 abilities and constrain car learning in dynamic ways;
 * data ingestion/persisting mechanism, so that we can log in a reliable and consistent way everything that happens
 within a run
+
+Some experimental code will be publish in the _develop_ branch and hopefully merge later on into a _beta_ release.
 
 
 ## Acknowledgments
