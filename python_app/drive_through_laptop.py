@@ -1,5 +1,6 @@
 import argparse
 from py_overdrive_sdk.py_overdrive import Overdrive
+from random import randint
 # use pygle to have a friendly keyboard interface! It's a toy, after all ;-)
 # adapted from https://gist.github.com/davepape/6715432
 from pyglet.gl import *
@@ -11,9 +12,9 @@ parser.add_argument("--host", help="host of the node gateway for bluetooth commu
 parser.add_argument("--port", help="port of the node gateway for bluetooth communication", type=int, default=8005)
 args = parser.parse_args()
 
-# init pyglet window with stylish image
-window = pyglet.window.Window(50, 50)
-image = pyglet.resource.image('kitten.png')
+# init pyglet window with stylish image, size 240x400
+window = pyglet.window.Window(240, 400)
+image = pyglet.resource.image('pyglet_screen_savers/ff-family-{}.jpg'.format(randint(0, 3)))
 
 
 """
