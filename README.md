@@ -3,7 +3,7 @@ This is a Python wrapper to read/send message from/to [Anki Overdrive](https://w
 bluetooth vehicles.
 
 The project was designed for the A.I. blog series _Self-driving (very small) cars_:
-please refer to the Medium [post](https://medium.com/@jacopotagliabue) for a full explanation on the code structure and the philosophy behind it.
+please refer to the Medium [post](https://towardsdatascience.com/self-driving-very-small-cars-part-i-398cca26f930) for a full explanation on the code structure and the philosophy behind it.
 
 ## TL;DR
 We share a cross-platform Python+node setup that allows for quick experimentation and prototyping of interesting ideas
