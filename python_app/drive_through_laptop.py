@@ -57,8 +57,9 @@ print("Wait until window gets opened and then press any key to start!")
 input()
 # init car
 print("Connecting to the car now...")
+car = Overdrive(args.host, args.port, args.car, verbose=True)
 # use connected car as a context
-with Overdrive(args.host, args.port, args.car, verbose=True) as connected_car:
+with car as connected_car:
     # start input loop
     pyglet.app.run()
 
