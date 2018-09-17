@@ -8,11 +8,11 @@ class AnkiCharger(AnkiCar):
 
         return
 
-    def change_speed(self):
-        pass
+    def change_speed(self, speed, accel):
+        self.overdrive_client.change_speed(speed, accel)
 
-    def change_lane_right(self):
-        pass
+    def change_lane_right(self, speed, accel):
+        self.overdrive_client.change_lane_right(speed, accel)
 
-    def change_lane_left(self):
-        pass
+    def change_lane_left(self, speed, accel):
+        self.overdrive_client.change_lane_left(speed, accel)
