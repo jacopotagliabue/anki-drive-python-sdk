@@ -46,14 +46,13 @@ class Overdrive:
 
     def __enter__(self):
         #  try to connect to the car through node socket and start threads
-        if not self._connected:
-            self._connect(self.uuid)
-        pass
+        self.connect()
+        return self
 
     def __exit__(self, exc_type, exc_value, traceback):
         # on exit, clean-up: method added to substitute __del__ which is very unreliable see for example:
         # https://stackoverflow.com/questions/45655448/alternative-to-del-for-final-result-killing-processes-in-a-class
-        self._disconnect(self.uuid)
+        self.disconnect()
         return
 
     """
@@ -63,7 +62,14 @@ class Overdrive:
     def connect(self):
         # for convenience, expose a connecting wrapper in case
         # user prefer NOT to use the context instantiation option
-        self._connect(self.uuid)
+        if not self._connected:
+            self._connect(self.uuid)
+
+    def disconnect(self):
+        # for convenience, expose a connecting wrapper in case
+        # user prefer NOT to use the context instantiation option
+        if self._connected:
+            self._disconnect(self.uuid)
 
     def _disconnect(self, uuid):
         self.node_socket.send("DISCONNECT|{}\n".format(uuid).encode())
@@ -109,7 +115,7 @@ class Overdrive:
         while self._connected:
             try:
                 data = self._queues['commands'].get_nowait()
-                self.node_socket.send('{}\n'.format(data.hex()).encode())
+                self.node_socket.send('{}|{}\n'.format(self.uuid, data.hex()).encode())
             except Empty as empty_ex:
                 continue
             except Exception as ex:

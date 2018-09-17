@@ -1,5 +1,5 @@
 import argparse
-from py_overdrive_sdk.py_overdrive import Overdrive
+from py_overdrive_sdk.anki_charger import AnkiCharger
 from random import randint
 # use pygle to have a friendly keyboard interface! It's a toy, after all ;-)
 # adapted from https://gist.github.com/davepape/6715432
@@ -53,11 +53,11 @@ RUN THE MAIN LOOP
 """
 
 
-print("Wait until window gets opened and then press any key to start!")
+print("Press any key to start!")
 input()
 # init car
 print("Connecting to the car now...")
-car = Overdrive(args.host, args.port, args.car, verbose=True)
+car = AnkiCharger(args.host, args.port, args.car, verbose=True)
 # use connected car as a context
 with car as connected_car:
     # start input loop

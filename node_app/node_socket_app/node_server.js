@@ -16,8 +16,6 @@ const ANKI_DRIVE_SERVICE_UUIDS = ["be15beef6186407e83810bd89c4d8df4"];
 const ANKI_DRIVE_CHARACTERISTIC_UUIDS = ["be15bee06186407e83810bd89c4d8df4", "be15bee16186407e83810bd89c4d8df4"];
 // get port as the first arg from the command line
 var CURRENT_PORT = parseInt(process.argv[2]);
-// get current car UUID as the second arg from the command line
-var CURRENT_CAR_UUID = process.argv[3];
 
 
 noble.on('stateChange', function(state) {
@@ -80,16 +78,12 @@ var server = net.createServer(function(client) {
                     vehicle.disconnect();
                     console.log("disconnect success");
                     break;
-                // disconnect from all cars discovered, e.g. QUIT
-                case "QUIT":
-                    client.vehicles.forEach(function(v) {v.disconnect()});
-                    console.log("all disconnected successfully");
-                    break;
-                // default option: just send the message to the car unfiltered
+                // default option: send the message to the car based on UUID, e.g.
+                // 83d9630daa534025ab4a29a4c398d552|HEX_MESSAGE
                 default:
-                    console.log('run command ' + command);
-                    var vehicle = noble._peripherals[CURRENT_CAR_UUID];
-                    vehicle.writer.write(new Buffer(command, 'hex'));
+                    console.log('run command: ' + normalizedData);
+                    var vehicle = noble._peripherals[command];
+                    vehicle.writer.write(new Buffer(args[0], 'hex'));
             }
         });
     }); // on data received
@@ -111,5 +105,5 @@ var server = net.createServer(function(client) {
 });
 
 server.listen(CURRENT_PORT);
-console.log(util.format("Node gateway started, port %s, car id %s", CURRENT_PORT, CURRENT_CAR_UUID));
+console.log(util.format("Node gateway started, port %s", CURRENT_PORT));
 
